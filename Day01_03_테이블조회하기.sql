@@ -63,10 +63,59 @@ SELECT EMPNO,
        COMM,
        DEPTNO 
   FROM EMP;
-  
-  -- 3. 동일한 데이터는 한 번만 조회하기
-  --    DISTINCT
-  SELECT DISTINCT JOB
-    FROM EMP;
-  
-  
+-- 3. 동일한 데이터는 한 번만 조회하기
+--    DISTINCT
+SELECT DISTINCT JOB
+  FROM EMP;
+    
+-- 4. JOB이 MANAGER인 사원 목록 조회하기
+SELECT EMPNO , ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+  FROM EMP
+ WHERE JOB = 'MANAGER';
+
+SELECT EMPNO , ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+  FROM EMP
+ WHERE JOB IN('MANAGER');
+
+-- 5. SAL이 1500 초과인 사원 목록 조회하기
+SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+  FROM EMP
+ WHERE SAL > 1500;
+ 
+-- 6. SAL이 2000 ~ 2999인 사원 목록 조회하기
+SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+  FROM EMP
+ WHERE SAL BETWEEN 2000 AND 2999;
+ 
+ 
+-- 7. COMM을 받는 사원 목록 조회하기
+--    1) NULL 이다   : IS NULL
+--    2) NULL 아니다 : IS NOT NULL
+ SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+   FROM EMP
+  WHERE COMM IS NOT NULL
+    AND COMM != 0;
+
+-- 8. ENAME이 A로 시작하는 사원 목록 조회하기
+--    1) WILD CARD
+--       (1) % : 모든 문자, 글자 수 제한 없는 모든 문자
+--       (2) _ : 1글자로 제한된 모든 문자
+--    2) 연산자
+--       (1) LIKE     : WILD CARD 포함
+--       (2) NOT LIKE : WILD CARD 미포함
+SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+  FROM EMP
+ WHERE ENAME LIKE 'A%';
+
+
+
+
+
+
+
+
+
+
+
+
+

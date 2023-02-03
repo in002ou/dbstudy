@@ -32,7 +32,10 @@
         UNIQUE
     3. 값의 제한
         CHECK
+    4. pk (primary key 기본키) 특성으로 유니크와 낫 널을 자동으로 부여 받는다. 개체 무결성
 */
+
+
 
 -- 예시 테이블
 DROP TABLE PRODUCT;
