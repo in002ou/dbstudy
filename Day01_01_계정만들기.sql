@@ -18,6 +18,7 @@
     1. 선택 쿼리 실행 : Ctrl + Enter  (다중 행 블록 후 실행, 또는 단일 행은 커서만 위치해 둔 후 실행)
     2. 모든 쿼리 실행 : F5 (새로 고침 아님 주의, 오류가 있어도 끝까지 실행)
 */
-DROP USER SCOTT CASCADE;DROP USER GDJ61 CASCADE;
+DROP USER SCOTT CASCADE;
+DROP USER GDJ61 CASCADE;
 CREATE USER GDJ61 IDENTIFIED BY 1111;
 GRANT DBA TO GDJ61;
