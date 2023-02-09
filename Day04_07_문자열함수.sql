@@ -29,3 +29,43 @@ SELECT
      , FIRST_NAME || ' ' || LAST_NAME  
   FROM
        EMPLOYEES;
+
+
+-- 4. 문자열 일부 반환
+--    SUBSTR(칼럼, BEGIN, LENGTH) : BEGIN부터 LENGTH개를 반환
+--     주의! BEGIN은 1에서 시작
+SELECT
+       SUBSTR(EMAIL, 1, 3)  -- 1번째 글자부터 3글자를 가져오시오
+  FROM
+       EMPLOYEES;
+
+-- 5. 특정 문자열의 위치 반환
+--    INSTR(칼럼, 찾을문자열)
+--    주의! 반환되는 위치 정보는 인덱스가 아니므로 0부터 시작하지 않고, 1부터 시작.
+--    못 찾으면 0을 반환
+SELECT
+       INSTR(EMAIL, 'A')  -- 'A'의 위치를 반환
+  FROM
+       EMPLOYEES;
+
+
+-- 6. 문자열 채우기(PADDING)
+--    1) LPAD(칼럼, 전체폭, 채울문자)
+--    2) RPAD(칼럼, 전체폭, 채울문자)
+SELECT
+       LPAD(NVL(DEPARTMENT_ID, '000'), 3, '0')
+     , RPAD(SUBSTR(EMAIL, 1, 2), 5, '*')
+  FROM
+       EMPLOYEES;
+       
+
+-- 7. 불필요한 공백 제거
+--    1) LTRIM(칼럼) : 왼쪽 공백 제거
+--    2) RTRIM(칼럼) : 오른쪽 공백 제거
+--    3) TRIM(칼럼)  : 왼쪽, 오른쪽 공백 모두 제거
+SELECT
+       '[' || LTRIM('     HELLO') || ']'
+     , '[' || RTRIM('HELLO     ') || ']'
+     , '[' || TRIM('   HELLO   ') || ']'
+  FROM
+       DUAL;
